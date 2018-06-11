@@ -1,0 +1,19 @@
+<div style="padding:5px;">
+  <div class="container-fluid" style="width:100%;">
+    <div class="row">
+      <select multiple class="list-group" style="width:45%;" [size]="size" #unselectComponent [(ngModel)]="highlightedForSelecting">
+        <option *ngFor="let item of unselectedItems" [value]="item" (dblclick)="dblClickSelectItem(item)" [label]="item[displayMember]"></option>
+      </select>
+
+      <div style="width: 10%; text-align: center; vertical-align: middle; line-height: 100%">
+        <button type="button" class="btn btn-primary" style="margin-top: 5px; margin-bottom:5px;" (click)="btnClickSelectItems()">&gt;</button>
+        <br/>
+        <button type="button" class="btn btn-primary" (click)="btnClickUnselectItems()">&lt;</button>
+      </div>
+
+      <select multiple class="list-group" style="width:45%" #selectComponent [(ngModel)]="highlightedForUnselecting">
+        <option *ngFor="let item of selectedItems" [value]="item" (dblclick)="dblClickUnselectItem(item)" [label]="item[displayMember]"></option>
+      </select>
+    </div>
+  </div>
+</div>
